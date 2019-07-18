@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": "stubborn-servant"
+      "path": "extraordinary-victoria"
     },
     "live": {
       "bucket": "projects.seattletimes.com",

@@ -21,8 +21,8 @@ var render = function() {
     <img src="${r.image ? "./assets/" + r.image : ""}">
   <td class="name">${r.exec}
   <td class="company">${r.company}
-  <td class="ceo-pay">${format(r.exec_pay)}
-  <td class="employee-pay ${isNumeric(r.employee_pay) ? "" : "non-numeric"}">${format(r.employee_pay)}${r.asterisk}
+  <td class="ceo-pay">${format(r.exec_pay)}${r.asterisk}
+  <td class="employee-pay ${isNumeric(r.employee_pay) ? "" : "non-numeric"}">${format(r.employee_pay)}
   <td class="ratio">${r.ratio}
   `).join("");
 };
