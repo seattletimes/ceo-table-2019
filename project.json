@@ -1,0 +1,20 @@
+{
+  "s3": {
+    "stage": {
+      "bucket": "projects-staging.seattletimes.com",
+      "path": "stubborn-servant"
+    },
+    "live": {
+      "bucket": "projects.seattletimes.com",
+      "path": "2018/business/ceo-pay-table"
+    }
+  },
+  "title": "",
+  "description": "",
+  "url": "",
+  "image": "assets/social.jpg",
+  "sheets": [],
+  "standout": false,
+  "embedded": true,
+  "production": true
+}

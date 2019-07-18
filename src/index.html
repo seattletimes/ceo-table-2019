@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child>
+      <main class="interactive">
+        <h2>What they make - comparing the boss and the typical employee</h2>
+        <p class="chatter">
+          A new federal regulation requires public companies to report the ratio between their median employee’s pay and the CEO’s total compensation. Companies must report their pay ratios within 120 days of the end of their fiscal years -- a deadline that has yet to arrive for some companies with fiscal years that don't align with calendar years.
+
+        <table class="pay-table collapsed">
+          <thead>
+            <tr>
+              <th class="portrait">
+              <th class="name" data-sort="sortExec">CEO
+              <th class="company" data-sort="sortCompany">Company
+              <th class="ceo-pay sorted" data-direction="down" data-sort="exec_pay">Total CEO compensation
+              <th class="employee-pay" data-sort="employee_pay">Median employee pay
+              <th class="ratio" data-sort="sortRatio">Ratio
+          <tbody>
+          <tbody>
+            <tr>
+              <td colspan=9>
+                <button class="expand">Show all rows</button>
+        </table>
+        <div class="source">
+          <p>* Calculated from company's reported CEO pay and pay ratio
+          <p>Source: Equifax
+        </div>
+        <div class="credit">
+          Thomas Wilburn / The Seattle Times
+        </div>
+      </main>
+    </responsive-child>
+
+    <script>
+window.payData = <%= JSON.stringify(csv.pay) %>;
+    </script>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_analytics.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>

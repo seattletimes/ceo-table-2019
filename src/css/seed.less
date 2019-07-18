@@ -1,0 +1,122 @@
+@import "seattletimes";
+
+main.interactive {
+  max-width: 960px;
+}
+
+.pay-table {
+  border-collapse: collapse;
+  font-size: 16px;
+  margin: auto;
+  width: 100%;
+
+  @media @mobile {
+    font-size: 14px;
+  }
+
+  th {
+    cursor: pointer;
+    font-weight: normal;
+    background: @df-light-gray;
+    border-bottom: @df-middle-gray;
+  }
+
+  th, td {
+    padding: 3px 8px 0 0;
+    line-height: 1;
+  }
+
+  tr:nth-child(2n) td {
+    background: @df-off-white;
+  }
+
+  .portrait, .name, .company {
+    text-align: left;
+  }
+
+  .ceo-pay, .employee-pay, .ratio {
+    text-align: right;
+  }
+
+  tbody tr:first-child {
+    .ceo-pay, .employee-pay:not(.non-numeric) {
+      &::before {
+        content: "$";
+      }
+    }
+  };
+
+  .expand {
+    display: none;
+  }
+
+  &.collapsed {
+    .expand {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      margin: auto;
+      padding: 8px 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid @df-middle-gray;
+      font-size: 18px;
+      font-style: italic;
+
+      &:hover {
+        background: @df-light-gray;
+      }
+    }
+
+    tr:nth-child(n + 11) {
+      display: none;
+    }
+  }
+
+  @media @mobile {
+
+    .name {
+      max-width: 70px;
+    }
+
+    .company {
+      max-width: 70px;
+    }
+
+    .ceo-pay {
+      max-width: 100px;
+    }
+
+    .employee-pay {
+      display: none;
+    }
+  }
+
+  .sorted {
+    font-weight: bold;
+
+    &::after {
+      content: " ▲";
+    }
+
+    &[data-direction="down"]::after {
+      content: " ▼";
+    }
+  }
+}
+
+.source, .credit {
+  font-size: 15px;
+}
+
+.source {
+  p {
+    margin: 0;
+  }
+}
+
+.credit {
+  text-align: right;
+  text-transform: uppercase;
+  font-style: italic;
+}
